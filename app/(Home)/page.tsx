@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React, { Fragment } from 'react';
-import CardWithForm from './CardWithForm';
+import CardWithForm from '../../components/CardWithForm';
 import Container from '@/components/Container/Container';
 import Product from './Product';
 import CustomCarousel from './Carousel';

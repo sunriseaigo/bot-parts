@@ -1,8 +1,15 @@
 import Container from '@/components/Container/Container'
 import React from 'react'
 import Product from './Product'
-import Sidebar from './Sidebar'
-import CardWithForm from './CardWithForm'
+import CardWithForm from '@/components/CardWithForm'
+import SidebarDropdown from '@/components/SidebarDropdown'
+
+const topbarList = [
+  {name: 'Як замовити'},
+  {name: 'Оплата та доставка'},
+  {name: 'Гарантія та повернення'},
+  {name: 'Блог'},
+]
 
 const Page2 = () => {
   return (
@@ -10,9 +17,13 @@ const Page2 = () => {
       {/* SECTION */}
       <div className='bg-primary'>
         <Container>
-          <div className='flex h-[132px] justify-between items-center'>
-            <div className='text-white text-semibold text-[36px] max-w-[420px]'>Автозапчастини для легкових авто</div> 
-            <div>Шини і диски</div>
+          <div className='flex max-xl:flex-col h-[132px] justify-between max-xl:justify-center gap-2 items-center'>
+            <div className='text-white text-semibold text-[36px] max-md:text-[24px] max-w-[420px] max-xl:max-w-full'>Автозапчастини для легкових авто</div> 
+            <div className='text-white text-[20px] flex gap-12 max-xl:gap-6 max-2xl:text-[16px]'>
+              {topbarList.map((item, index)=>(
+                <span className='max-md:text-[12px]' key={index}>{item.name}</span>
+              ))}
+            </div>
           </div>
         </Container>
         </div>
@@ -21,7 +32,9 @@ const Page2 = () => {
           {/* LEFT */}
           <div className='mt-16'>
           <CardWithForm/>
-          <Sidebar/>
+          <div className='mt-16'>
+            <SidebarDropdown/>
+          </div>
           </div>
           {/* RIGHT */}
           <Product/>
