@@ -2,7 +2,7 @@ import Container from '@/components/Container/Container'
 import React from 'react'
 import Product from './Product'
 import Sidebar from './Sidebar'
-import CardWithForm from '../(home)/CardWithForm'
+import CardWithForm from './CardWithForm'
 
 const Page2 = () => {
   return (
