@@ -164,12 +164,12 @@
 
 
 @media (min-width: 1280px) { 
-    .navbarContainerHamburger{
+    /* .navbarContainerHamburger{
         display: none;
-    }
-    .setSidebarForToggle{
+    } */
+    /* .setSidebarForToggle{
       display: none;
-    }
+    } */
 }
 /* @media (max-width: 1279px) { 
     .navbarContainerMiddle{

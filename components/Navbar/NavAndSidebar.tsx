@@ -9,10 +9,10 @@ import {
 import { useState } from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import Link from "next/link";
-import { usePathname } from 'next/navigation';
 import styles from "./navAndSidebar.module.css";
 import Image from "next/image";
 import Searchbar from "./Searchbar";
+import {navRoutes} from "./NavLinks"
 
 
 const NavAndSidebar = () => {
@@ -110,7 +110,11 @@ const NavAndSidebar = () => {
               />
             </div>
             <ul className={styles.SidebarItems}>
-              {/* ITEM */}
+              {navRoutes.map((item, index)=>(
+                <div key={index}>
+                  <Link onClick={()=>{setOpenSidebar(!openSidebar)}} href={item.route}>{item.name}</Link>
+                </div>
+              ))}
             </ul>
           </div>
         </div>

@@ -74,3 +74,10 @@
       @apply bg-background text-foreground;
     }
   }
+
+
+.CarouselElement {
+  width: calc(100vw - 180px);
+  /* border: 8px solid red; */
+}
+  

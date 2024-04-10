@@ -49,7 +49,7 @@ import {
 
 export function CardWithForm() {
   return (
-    <Card className="w-[421px]">
+    <Card className="lg:w-[421px] w-full">
       <CardHeader >
         <CardTitle className="flex justify-center">Фільтр запчастин</CardTitle>
       </CardHeader>
