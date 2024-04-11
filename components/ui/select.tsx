@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
-import { Check, ChevronDown, ChevronUp, Phone } from "lucide-react"
+import { Check, ChevronDown, ChevronUp } from "lucide-react"
+import { FaPhoneAlt } from "react-icons/fa";
 
 import { cn } from "@/lib/utils"
 
@@ -31,7 +32,7 @@ const SelectTrigger = React.forwardRef<
   >
     {customIcon &&
     <SelectPrimitive.Icon asChild>
-      <Phone className="h-5 w-5 opacity-50" />
+      <FaPhoneAlt className="h-5 w-5 opacity-50" />
     </SelectPrimitive.Icon>}
     {children}
     <SelectPrimitive.Icon asChild>

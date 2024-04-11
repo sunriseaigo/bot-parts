@@ -25,6 +25,7 @@ const Page1 = () => {
           {/* RIGHT */}
           <Product/>
         </Container>
+        <div className='mt-40' />
     </div>
   )
 }

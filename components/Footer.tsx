@@ -22,14 +22,10 @@ const bottomList = [
 
 const Footer = () => {
   return (
-    <footer className="mt-40 text-primary">
+    <footer className="text-primary">
         {/* <Container> */}
 
         {/* SECTION-01 */}
-         <div className="py-8 bg-secondary font-bold text-[32px] text-center">
-            <Container>Залишилися питання? Задайте їх нам!</Container>    
-          </div>
-
          {/* SECTION-02 */}
           <div className="py-12 bg-primary text-white">
             <Container className="flex max-md:items-center max-md:flex-col gap-20">

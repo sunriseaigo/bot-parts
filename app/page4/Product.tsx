@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 
 const Product = () => {
-  const productArray = new Array(12).fill(null);
+  const productArray = new Array(4).fill(null);
 
   return (
     <div className='mt-16 flex gap-8 flex-wrap justify-center'> 

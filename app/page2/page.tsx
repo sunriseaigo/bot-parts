@@ -39,6 +39,7 @@ const Page2 = () => {
           {/* RIGHT */}
           <Product/>
         </Container>
+        <div className='mt-40' />
     </div>
   )
 }

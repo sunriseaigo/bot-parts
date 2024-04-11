@@ -231,7 +231,9 @@ const Home = () => {
         </Container>
       </div>
 
-
+      <div className="mt-40 py-8 bg-secondary font-bold text-[32px] text-center">
+            <Container>Залишилися питання? Задайте їх нам!</Container>    
+      </div>
     </div>
   );
 };
