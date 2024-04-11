@@ -34,7 +34,7 @@ const Footer = () => {
           <div className="py-12 bg-primary text-white">
             <Container className="flex max-md:items-center max-md:flex-col gap-20">
             <Image
-                src="/imgs/manLogo.svg"
+                src="/icons/bottomLogo.svg"
                 alt=""
                 width={226}
                 height={235}
