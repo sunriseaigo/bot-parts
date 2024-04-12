@@ -7,5 +7,6 @@ export const navRoutes = [
   { name: "Page-05", route: "/page5" },
   { name: "Thank You", route: "/thank-you" },
   { name: "Contact", route: "/contact" },
+  { name: "Page-06", route: "/page6" },
   { name: "Page-07", route: "/page7" },
 ];
