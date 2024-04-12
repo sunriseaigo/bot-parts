@@ -1,10 +1,10 @@
 "use client";
-import Container from '@/components/Container/Container';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import Container from '@/components/Container/Container';
 import { FaChevronLeft } from "react-icons/fa";
-import Product from './Product';
+import Products from '@/components/Products';
 
 const Page4 = () => {
     const imgsList = [
@@ -109,9 +109,7 @@ const Page4 = () => {
                     </div>
                 </div>
                 <div className='mt-32 text-[36px] font-semibold'>Рекомендовані товари:</div>
-                {/* <div style={{marginTop:'-120px', zIndex:'50'}}> */}
-                <Product/>
-                {/* </div> */}
+                <Products totalProducts={4}/>
             </Container>
 
             <div style={{marginTop:'-120px'}}>

@@ -1,8 +1,8 @@
-import Container from '@/components/Container/Container'
 import React from 'react'
-import Product from './Product'
+import Container from '@/components/Container/Container'
 import Sidebar from '../../components/SidebarDropdown'
 import Tab from './Tab'
+import Products from '@/components/Products'
 
 const Page1 = () => {
   return (
@@ -23,7 +23,7 @@ const Page1 = () => {
             <Sidebar/>
           </div>
           {/* RIGHT */}
-          <Product/>
+          <Products totalProducts={12}/>
         </Container>
         <div className='mt-40' />
     </div>

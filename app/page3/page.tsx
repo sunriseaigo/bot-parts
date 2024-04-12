@@ -1,8 +1,8 @@
-import Container from '@/components/Container/Container'
 import React from 'react'
-import Product from './Product'
+import Container from '@/components/Container/Container'
 import CardWithForm from '@/components/CardWithForm'
 import SidebarDropdown from '@/components/SidebarDropdown'
+import Products from '@/components/Products'
 
 const Page3 = () => {
   return (
@@ -20,7 +20,7 @@ const Page3 = () => {
           </div>
           </div>
           {/* RIGHT */}
-          <Product/>
+          <Products totalProducts={12}/>
         </Container>
         <div className='mt-40' />
     </div>

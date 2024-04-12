@@ -1,11 +1,15 @@
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
 
-const Product = () => {
-  const productArray = new Array(4).fill(null);
+interface ProductsProps {
+  totalProducts: number;
+}
+
+const Products: React.FC<ProductsProps> = ({ totalProducts }) => {
+  const productArray = new Array(totalProducts).fill(null);
 
   return (
-    <div className='mt-16 flex gap-8 flex-wrap justify-center'> 
+    <div className='mt-16 flex gap-6 flex-wrap justify-center'> 
       {productArray.map((_, index) => (
         <div key={index} className="bg-white w-[420px] h-[534px] max-2xl:w-[340px] max-2xl:h-[454px] max-xl:w-[280px] max-xl:h-[394px] max-md:w-[240px] max-md:h-[354px] border-2 p-[20px] text-primary flex flex-col justify-between" style={{ borderRadius: '38px' }}>
           <div>
@@ -20,7 +24,7 @@ const Product = () => {
           </div>
           <div className="flex justify-between items-center">
             <span>391₴</span>
-            <span className="flex items-center gap-3 2xl:text-[40px] text-[30px] bg-secondary px-4" style={{borderRadius:'37px'}}>+ 
+            <span className="flex items-center gap-3 2xl:text-[40px] text-[30px] bg-secondary px-4" style={{ borderRadius: '37px' }}>+ 
               <Image
                 src="/icons/cart.svg"
                 alt=""
@@ -36,4 +40,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Products;
