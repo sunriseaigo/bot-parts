@@ -12,7 +12,7 @@ const Page1 = () => {
         <Container>
           <div className='flex gap-2 max-xl:flex-col h-[132px] justify-between max-xl:justify-center items-center'>
             <div className='text-white text-semibold text-[36px]'>Шини і диски</div> 
-            <Tab/>
+            {/* <Tab/> */}
           </div>
         </Container>
         </div>

@@ -5,7 +5,7 @@ import {
     AccordionTrigger,
   } from "@/components/ui/accordion"
   
-  export function CustomAccordion() {
+export function CustomAccordion() {
     return (
       <div className="flex max-xl:flex-col gap-24 max-xl:gap-0 mt-16 text-primary">
         <Accordion type="single" collapsible className="w-full">
@@ -61,7 +61,6 @@ import {
           </AccordionContent>
         </AccordionItem>
         </Accordion>
-
       </div>
     )
   }

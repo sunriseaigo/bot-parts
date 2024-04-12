@@ -58,7 +58,7 @@ const Page6 = () => {
 
 
       {/* SECTION-02 */}
-      <div className='mt-36 pb-4 text-center text-[36px] max-lg:text-[24px] max-md:text-[18px] font-bold'>
+      <div className='mt-24 pb-4 text-center text-[36px] max-lg:text-[24px] max-md:text-[18px] font-bold'>
         <Container>Як оплатити автозапчастини з Європи?</Container>
       </div>
       <Container className='flex w-full max-md:flex-col gap-8 pt-12'>

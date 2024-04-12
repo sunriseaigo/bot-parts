@@ -25,10 +25,6 @@ const bottomList = [
 const Connect = () => {
   return (
     <footer className="text-primary">
-        {/* <Container> */}
-
-
-
         {/* SECTION-01 */}
         <Container className="max-sm:flex-col min-h-screen flex justify-between w-full gap-12 text-primary">
           <div className="w-2/5 flex max-lg:flex-col  gap-8">
@@ -79,8 +75,6 @@ const Connect = () => {
           </div>
          </div>
         </Container>
-
-
 
         {/* SECTION-02 */}
         <div className="py-12 bg-primary text-white">
