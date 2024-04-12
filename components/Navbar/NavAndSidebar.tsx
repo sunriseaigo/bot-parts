@@ -111,7 +111,7 @@ const NavAndSidebar = () => {
             </div>
             <ul className={styles.SidebarItems}>
               {navRoutes.map((item, index)=>(
-                <div key={index}>
+                <div className="pb-4 text-[24px] font-semibold text-primary" key={index}>
                   <Link onClick={()=>{setOpenSidebar(!openSidebar)}} href={item.route}>{item.name}</Link>
                 </div>
               ))}
