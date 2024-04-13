@@ -1,12 +1,13 @@
 import Container from '@/components/Container/Container';
+import CustomTabs from '@/components/CustomTabs';
 import React from 'react';
 
 const Page7 = () => {
   return (
-    <div className='pt-20 pb-40 text-primary'>
-
+    <div className='pb-40 text-primary'>
+      <CustomTabs active="Гарантія та повернення" />
       {/* SECTION-01 */}
-      <div className='py-4 bg-secondary text-center text-[36px] max-lg:text-[24px] max-md:text-[18px] font-bold'>
+      <div className='mt-20 py-4 bg-secondary text-center text-[36px] max-lg:text-[24px] max-md:text-[18px] font-bold'>
         <Container>Гарантія на автозапчастини з Європи</Container>
       </div>
       <Container className='flex w-full max-md:flex-col gap-8 pt-12'>

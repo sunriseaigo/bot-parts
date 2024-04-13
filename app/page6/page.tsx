@@ -3,14 +3,7 @@ import Container from '@/components/Container/Container'
 import Image from 'next/image'
 import { BsArrowRight } from "react-icons/bs";
 import CustomAccordion from './Accordion';
-
-const topberItems = [
-    { name: 'Легкові авто' },
-    { name: 'Вантажівки' },
-    { name: 'Спец техніка' },
-    { name: 'Шини/диски' },
-    { name: 'Аксесуари' },
-];
+import CustomTabs from '@/components/CustomTabs';
 
 const boxItems1 = [
     {text:'Blandit cursus praesent id nulla. Lobortis duis morbi faucibus vel pretium neque sapien. Arcu fermentum a viverra mi turpis blandit. Egestas blandit elit sed tortor morbi'},
@@ -29,33 +22,8 @@ const boxItems2 = [
 const Page6 = () => {
   return (
     <div>
-        {/* SECTION */}
-        <Image
-        src="/imgs/banner.svg"
-        alt=""
-        width={1206}
-        height={400}
-        className='w-full h-auto'
-      />
-      <div style={{ marginTop: '-2px' }} className='px-16 flex bg-primary text-white justify-center xl:text-[22px] lg:text-[16px] md:text-[14px] text-[12px] flex-wrap'>
-        {topberItems.map((item, index) => (
-          <Fragment key={index}>
-            {index !== 0 && 
-              <div className='h-[54px] flex items-center'>
-                <Image
-                  src="/icons/yellowCircle.svg"
-                  alt=""
-                  width={1206}
-                  height={400}
-                  className='w-full h-auto lg:mx-12 md:mx-6 mx-3'
-                />
-              </div>
-            }
-            <div className='h-[54px] flex items-center'>{item.name}</div>
-          </Fragment>
-        ))}
-      </div>
-
+      {/* SECTION */}
+       <CustomTabs active="Оплата та доставка"/> 
 
       {/* SECTION-02 */}
       <div className='mt-24 pb-4 text-center text-[36px] max-lg:text-[24px] max-md:text-[18px] font-bold'>

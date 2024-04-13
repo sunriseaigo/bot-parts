@@ -64,7 +64,7 @@ const Footer = () => {
               <div className="flex items-center"><FaPhoneAlt className="mr-2"/>+380 000 000 00 00</div>
               <div>@ example@gmail.com</div>
               <div className="flex items-center">Слідкуйте за нами:
-                <div className="ml-3 flex gap-2 mt-2 text-[22px] max-sm:justify-center">
+                <div className="ml-3 flex gap-2 text-[28px] max-sm:justify-center">
                   <RiInstagramFill /> <FaFacebookSquare /> <FaTiktok />
                 </div>
               </div>

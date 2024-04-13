@@ -1,4 +1,5 @@
 import Container from '@/components/Container/Container'
+import CustomTabs from '@/components/CustomTabs';
 import Image from 'next/image'
 import React, { Fragment } from 'react'
 
@@ -33,31 +34,7 @@ const Page11 = () => {
   return (
     <div className='text-primary'> 
         {/* SECTION */}
-        <Image
-        src="/imgs/banner.svg"
-        alt=""
-        width={1206}
-        height={400}
-        className='w-full h-auto'
-      />
-      <div style={{ marginTop: '-2px' }} className='px-16 flex bg-primary text-white justify-center xl:text-[22px] lg:text-[16px] md:text-[14px] text-[12px] flex-wrap'>
-        {topberItems.map((item, index) => (
-          <Fragment key={index}>
-            {index !== 0 && 
-              <div className='h-[54px] flex items-center'>
-                <Image
-                  src="/icons/yellowCircle.svg"
-                  alt=""
-                  width={1206}
-                  height={400}
-                  className='w-full h-auto lg:mx-12 md:mx-6 mx-3'
-                />
-              </div>
-            }
-            <div className='h-[54px] flex items-center'>{item.name}</div>
-          </Fragment>
-        ))}
-      </div>
+        <CustomTabs active="None" />
 
 
         <Container className='cursor-pointer pt-8 text-primary text-[16px]'>
