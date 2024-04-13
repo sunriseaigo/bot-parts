@@ -16,14 +16,17 @@ const topberItems = [
 
 const section1Items = [
   {
+    img: "/imgs/manLogo.svg",
     title: "Шукай",
     des: "Dignissim maecenas pulvinar eros mi gravida eu nisi fermentum mi. Semper sed adipiscing faucibus vulputate vel."
   },
   {
+    img: "/imgs/manLogo2.svg",
     title: "Замовляй",
     des: "Dignissim maecenas pulvinar eros mi gravida eu nisi fermentum mi. Semper sed adipiscing faucibus vulputate vel.",
   },
   {
+    img: "/imgs/manLogo3.svg",
     title: "Отримуй",
     des: "Volutpat tincidunt odio etiam iaculis sapien pellentesque. Venenatis sit auctor amet ut ut molestie massa morbi.",
   },
@@ -86,7 +89,7 @@ const Home = () => {
               {section1Items.map((item, index) => (
                 <div key={index} className='max-w-[390px] text-primary flex flex-col items-center border- border-blac'>
                   <Image
-                    src="/imgs/manLogo.svg"
+                    src={item.img}
                     alt=""
                     width={165}
                     height={173}
@@ -163,9 +166,9 @@ const Home = () => {
       <div className='mt-36'>
         <Container>
           <div className='font-semibold text-[36px] text-center text-primary'>Відгуки</div>
-          <div className='flex max-lg:flex-col gap-8 mt-16'>
+          <div className='flex max-lg:flex-col gap-8 mt-16 '>
             {section3Items.map((item, index) => (
-              <div key={index} className='text-primary p-8 w-1/3 max-lg:w-full border-2 border-primary' style={{ borderRadius: '37px' }}>
+              <div key={index} className='card-shadow text-primary p-8 w-1/3 max-lg:w-full border-2 border-primary' style={{ borderRadius: '37px' }}>
                 <div className='flex max-2xl:flex-col max-lg:flex-row max-sm:flex-col max-2xl:items-start items-center gap-1 justify-between text-[32px] font-medium'>
                   {item.title}
                   <Image

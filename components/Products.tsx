@@ -14,12 +14,11 @@ const Products: React.FC<ProductsProps> = ({ totalProducts }) => {
         <div key={index} className="card-shadow bg-white w-[420px] max-2xl:w-[340px] max-xl:w-[280px] max-md:w-[240px] max-sm:w-full p-[20px] text-primary flex flex-col justify-between cursor-pointer" style={{ borderRadius: '38px' }}>
           <div>
             <Image
-              src="/imgs/product.png"
+              src={index % 2 === 0 ? "/imgs/product.png" : "/imgs/product2.png"}
               alt=""
               width={380}
               height={320}
               className='w-full max-h-[320px]'
-              // className="max-2xl:w-[100px] max-2xl:h-[108px] max-xl:w-[80px] max-xl:h-[88px] max-md:w-[40px] max-md:h-[48px]"
             />
             <p className="pt-[20px] text-center font-semibold text-[22px] max-2xl:text-[18px] max-md:text-[16px]">Шторка сонцезахисна CarLife на ролеті 90х57 см</p>
           </div>

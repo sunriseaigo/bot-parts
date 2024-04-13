@@ -27,25 +27,25 @@ const Connect = () => {
     <footer className="text-primary">
         {/* SECTION-01 */}
         <Container className="max-sm:flex-col min-h-screen flex justify-between w-full gap-12 text-primary">
-          <div className="w-2/5 flex max-lg:flex-col  gap-8">
+          <div className="w-2/5 max-sm:w-full flex max-sm:items-center max-xl:flex-col  gap-8">
             <div className="">
-              <div className="font-bold text-[36px] mt-8 mb-2">Контакти</div>
+              <div className="max-sm:text-center font-bold text-[36px] mt-8 mb-2">Контакти</div>
               {telephoneList.map((item, index)=>(
-                <div className="mt-3 flex items-center" key={index} >
+                <div className="mt-3 flex items-center max-sm:justify-center" key={index} >
                   <FaPhoneAlt className="mr-2"/>{item.num}
                 </div>
               ))}
 
               <div className="font-bold text-[22px] mt-16 mb-2">Корпоративним клієнтам:</div>
-              <div className="mt-3 flex items-center" >
+              <div className="mt-3 flex items-center max-sm:justify-center" >
                   <FaPhoneAlt className="mr-2"/>+480 000 000 00 00
                 </div>
             </div>
 
             <div className="mt-20 max-lg:mt-8 text-[18px]">
               <div>@example@gmail.com</div>
-              <div className="pt-8">Слідкуйте за нами:</div>
-              <div className="flex gap-2 mt-2 text-[40px]">
+              <div className="pt-8 max-sm:text-center">Слідкуйте за нами:</div>
+              <div className="flex gap-2 mt-2 text-[40px] max-sm:justify-center">
                 <RiInstagramFill /> <FaFacebookSquare /> <FaTiktok />
               </div>
             </div>
