@@ -50,8 +50,8 @@ const Home = () => {
       <Image
         src="/imgs/banner.svg"
         alt=""
-        width={1206}
-        height={400}
+        width={1}
+        height={1}
         className='w-full h-auto'
       />
       <div style={{ marginTop: '-2px' }} className='px-16 flex bg-primary text-white justify-center xl:text-[22px] lg:text-[16px] md:text-[14px] text-[12px] flex-wrap'>
