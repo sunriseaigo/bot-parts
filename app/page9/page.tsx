@@ -77,7 +77,7 @@ const Page8 = () => {
 
             <div className='flex justify-center gap-6 flex-wrap mt-12'>
                 {productArray.map((_, index)=>(
-                <div key={index} className='w-[420px] max-2xl:w-[380px] max-xl:w-[340px] max-lg:w-[300px] max-md:w-[240px] max-sm:w-full rounded-[20px] p-4 border-2 border-gray-300'>
+                <div key={index} className='w-[420px] max-2xl:w-[380px] max-xl:w-[340px] max-lg:w-[300px] max-md:w-[240px] max-sm:w-full rounded-[20px] p-4 card-shadow'>
                     <Image
                         src="/imgs/cars/car1.png"
                         alt=""

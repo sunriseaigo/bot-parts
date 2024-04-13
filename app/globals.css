@@ -84,4 +84,10 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+.card-shadow{
+  -webkit-box-shadow: 1px 1px 5px 1px rgba(89,70,141,1);
+  -moz-box-shadow: 1px 1px 5px 1px rgba(89,70,141,1);
+  box-shadow: 1px 1px 5px 1px rgba(89,70,141,1);
+}
   

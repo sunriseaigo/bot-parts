@@ -1,18 +1,20 @@
-import React from 'react'
+'use client';
+import React, { useState } from 'react'
 import Container from '@/components/Container/Container'
 import Sidebar from '../../components/SidebarDropdown'
-import Tab from './Tab'
 import Products from '@/components/Products'
+import Tab from './Tab';
 
 const Page1 = () => {
+  const [tabState, setTabState] = useState('Для легкових авто');
   return (
     <div>
       {/* SECTION */}
       <div className='bg-primary'>
         <Container>
-          <div className='flex gap-2 max-xl:flex-col h-[132px] justify-between max-xl:justify-center items-center'>
+          <div className='py-12 flex gap-6 max-xl:flex-col min-h-[132px] justify-between max-xl:justify-center items-center'>
             <div className='text-white text-semibold text-[36px]'>Шини і диски</div> 
-            {/* <Tab/> */}
+            <Tab tabState={tabState} setTabState={setTabState}/>
           </div>
         </Container>
         </div>

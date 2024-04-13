@@ -1,10 +1,26 @@
-"use client";
+'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Container from '@/components/Container/Container';
-import { FaChevronLeft } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Products from '@/components/Products';
+
+
+const section3Items = [
+  {
+    title: "Консультуємо",
+    des: "Commodo volutpat aliquet a placerat cras. Id morbi lacus ac faucibus in orci et nunc. Malesuada senectus dignissim adipiscing tincidunt ut. Dignissim facilisi magna facilisis at pulvinar vulputate tristique. Sed ultricies commodo mi maecenas velit accumsan sed. Fringilla viverra quis sociis justo turpis turpis sit. Sit sollicitudin netus in erat bibendum diam vitae ullamcorper."
+  },
+  {
+    title: "Підбираємо",
+    des: "Commodo volutpat aliquet a placerat cras. Id morbi lacus ac faucibus in orci et nunc. Malesuada senectus dignissim adipiscing tincidunt ut. Dignissim facilisi magna facilisis at pulvinar vulputate tristique. Sed ultricies commodo mi maecenas velit accumsan sed. Fringilla viverra quis sociis justo turpis turpis sit. Sit sollicitudin netus in erat bibendum diam vitae ullamcorper.",
+  },
+  {
+    title: "Доставляємо",
+    des: "Commodo volutpat aliquet a placerat cras. Id morbi lacus ac faucibus in orci et nunc. Malesuada senectus dignissim adipiscing tincidunt ut. Dignissim facilisi magna facilisis at pulvinar vulputate tristique. Sed ultricies commodo mi maecenas velit accumsan sed. Fringilla viverra quis sociis justo turpis turpis sit. Sit sollicitudin netus in erat bibendum diam vitae ullamcorper.",
+  },
+];
 
 const Page4 = () => {
   const imgsList = [
@@ -16,22 +32,15 @@ const Page4 = () => {
     // { src:'/imgs/myProduct/myProductImg6.png' },
   ];
 
-  const [showImg, setShowImg] = useState("/imgs/myProduct/myProductImg1.png");
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const section3Items = [
-    {
-      title: "Консультуємо",
-      des: "Commodo volutpat aliquet a placerat cras. Id morbi lacus ac faucibus in orci et nunc. Malesuada senectus dignissim adipiscing tincidunt ut. Dignissim facilisi magna facilisis at pulvinar vulputate tristique. Sed ultricies commodo mi maecenas velit accumsan sed. Fringilla viverra quis sociis justo turpis turpis sit. Sit sollicitudin netus in erat bibendum diam vitae ullamcorper."
-    },
-    {
-      title: "Підбираємо",
-      des: "Commodo volutpat aliquet a placerat cras. Id morbi lacus ac faucibus in orci et nunc. Malesuada senectus dignissim adipiscing tincidunt ut. Dignissim facilisi magna facilisis at pulvinar vulputate tristique. Sed ultricies commodo mi maecenas velit accumsan sed. Fringilla viverra quis sociis justo turpis turpis sit. Sit sollicitudin netus in erat bibendum diam vitae ullamcorper.",
-    },
-    {
-      title: "Доставляємо",
-      des: "Commodo volutpat aliquet a placerat cras. Id morbi lacus ac faucibus in orci et nunc. Malesuada senectus dignissim adipiscing tincidunt ut. Dignissim facilisi magna facilisis at pulvinar vulputate tristique. Sed ultricies commodo mi maecenas velit accumsan sed. Fringilla viverra quis sociis justo turpis turpis sit. Sit sollicitudin netus in erat bibendum diam vitae ullamcorper.",
-    },
-  ];
+  const handleLeftClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? imgsList.length - 1 : prevIndex - 1));
+  };
+
+  const handleRightClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === imgsList.length - 1 ? 0 : prevIndex + 1));
+  };
 
   return (
     <>
@@ -43,23 +52,24 @@ const Page4 = () => {
         <div className='flex gap-12 w-full max-lg:flex-col mt-8'>
           {/* LEFT */}
           <div className='w-1/2 max-lg:w-full border- border-primary'>
-            <div>
+            <div className='flex items-center'>
+              <button onClick={handleLeftClick}><FaChevronLeft className='text-[36px] mr-2'/></button>
               <Image
-                src={showImg}
+                src={imgsList[currentIndex].src}
                 alt=''
                 width={723}
                 height={608}
-                className='w-full'
+                className='w-[85%] max-sm:w-[75%]'
               />
+              <button onClick={handleRightClick}><FaChevronRight className='text-[36px] ml-2'/></button>
             </div>
-            <div className='mt-6 flex max-w-[723px]'>
+            {/* Scrollbar */}
+            <div className='ml-[45px] mt-6 flex max-w-[723px]'>
               {imgsList.map((item, index) => (
-                <div key={index}>
-                  {showImg === item.src ?
+                <div key={index} className=''>
+                  {currentIndex === index ?
                     <Image
-                      onClick={() => {
-                        setShowImg(item.src);
-                      }}
+                      onClick={() => setCurrentIndex(index)}
                       src={item.src}
                       alt=''
                       width={120}
@@ -68,9 +78,7 @@ const Page4 = () => {
                     />
                     :
                     <Image
-                      onClick={() => {
-                        setShowImg(item.src);
-                      }}
+                      onClick={() => setCurrentIndex(index)}
                       src={item.src}
                       alt=''
                       width={120}
