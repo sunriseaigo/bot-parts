@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import axios from 'axios'
+import type { NextApiRequest, NextApiResponse } from "next";
+import axios from "axios";
 
-const EUPARTS_END_POINT_URL= process.env.EUPARTS_END_POINT_URL;
+const EUPARTS_END_POINT_URL = process.env.EUPARTS_END_POINT_URL;
 const brands = [
   { title: "Abarth", pk: 575 },
   { title: "AC", pk: 576 },
@@ -180,21 +180,20 @@ const brands = [
 ];
 
 export async function GET(req: NextApiRequest, res: NextApiResponse) {
+  // return Response.json({brands})
 
-  return Response.json({brands})
-
-  // try {
-  //     axios.get("https://euparts.com.ua/api/carmakes/?format=json").then(res=> {
-  //       console.log(res)
-  //     return Response.json({});
-
-  //   }).catch(err=>{
-  //     throw err;
-  //   })
-
-  // } catch (error) {
-  //   return Response.json({ error });
-  // }
-
-
+  try {
+    axios
+      .get("https://euparts.com.ua/api/carmakes/?format=json")
+      .then((res) => {
+        // console.log(res)
+        const brands = res.data;
+        return Response.json({ brands });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (error) {
+    return Response.json({ error });
+  }
 }

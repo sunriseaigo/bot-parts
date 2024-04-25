@@ -23,22 +23,25 @@ const section3Items = [
 ];
 
 const Page4 = () => {
-  const imgsList = [
-    { src: "/imgs/myProduct/myProductImg1.png" },
-    { src: "/imgs/myProduct/myProductImg2.png" },
-    { src: "/imgs/myProduct/myProductImg3.png" },
-    { src: "/imgs/myProduct/myProductImg4.png" },
-    { src: "/imgs/myProduct/myProductImg5.png" },
-    // { src:'/imgs/myProduct/myProductImg6.png' },
-  ];
-  const [imageList, setImageList] = useState([]);
+  // const imgsList = [
+  //   { src: "/imgs/myProduct/myProductImg1.png" },
+  //   { src: "/imgs/myProduct/myProductImg2.png" },
+  //   { src: "/imgs/myProduct/myProductImg3.png" },
+  //   { src: "/imgs/myProduct/myProductImg4.png" },
+  //   { src: "/imgs/myProduct/myProductImg5.png" },
+  //   // { src:'/imgs/myProduct/myProductImg6.png' },
+  // ];
+  const [imgsList, setImageList] = useState([]);
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
     axios
       .post("/api/detail", { product_id: "12107747197" })
       .then((res) => {
         const product = res.data.result;
+        console.log(typeof product);
         setImageList(product.images);
+        setProduct(product);
       })
       .catch((err) => {});
   }, []);
@@ -72,7 +75,7 @@ const Page4 = () => {
                 <FaChevronLeft className="text-[36px] mr-2" />
               </button>
               <Image
-                src={imgsList[currentIndex].src}
+                src={imgsList[currentIndex]?.original}
                 alt=""
                 width={723}
                 height={608}
@@ -89,7 +92,7 @@ const Page4 = () => {
                   {currentIndex === index ? (
                     <Image
                       onClick={() => setCurrentIndex(index)}
-                      src={item.src}
+                      src={item.original}
                       alt=""
                       width={120}
                       height={100}
@@ -98,7 +101,7 @@ const Page4 = () => {
                   ) : (
                     <Image
                       onClick={() => setCurrentIndex(index)}
-                      src={item.src}
+                      src={item.original}
                       alt=""
                       width={120}
                       height={100}
@@ -111,12 +114,12 @@ const Page4 = () => {
           </div>
           {/* Right */}
           <div className="w-1/2 max-lg:w-full border- border-primary">
-            <div className="font-semibold text-[36px]">
-              Комплектний підйомник BMW e46 320d може бути другий рядок
-            </div>
+            <div className="font-semibold text-[36px]">{product.title}</div>
             <div className="text-[22px] font-medium pt-6">Категорія:</div>
             <div className="text-[22px] font-medium pt-6">Стан:</div>
-            <div className="font-semibold text-[36px] pt-8">12 690.00 грн</div>
+            <div className="font-semibold text-[36px] pt-8">
+              {product.currency} {product.price}
+            </div>
             <div className="flex max-sm:flex-col mt-8 gap-4 items-center max-sm:items-start">
               <button className="h-[46px] w-[120px] text-[21px] flex items-center justify-center border-2 border-primar rounded-[30px]">
                 <span>-</span>
