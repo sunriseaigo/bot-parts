@@ -23,14 +23,6 @@ const section3Items = [
 ];
 
 const Page4 = () => {
-  // const imgsList = [
-  //   { src: "/imgs/myProduct/myProductImg1.png" },
-  //   { src: "/imgs/myProduct/myProductImg2.png" },
-  //   { src: "/imgs/myProduct/myProductImg3.png" },
-  //   { src: "/imgs/myProduct/myProductImg4.png" },
-  //   { src: "/imgs/myProduct/myProductImg5.png" },
-  //   // { src:'/imgs/myProduct/myProductImg6.png' },
-  // ];
   const [imgsList, setImageList] = useState([]);
   const [product, setProduct] = useState({});
 
@@ -39,7 +31,6 @@ const Page4 = () => {
       .post("/api/detail", { product_id: "12107747197" })
       .then((res) => {
         const product = res.data.result;
-        console.log(typeof product);
         setImageList(product.images);
         setProduct(product);
       })
