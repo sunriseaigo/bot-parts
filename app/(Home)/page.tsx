@@ -123,7 +123,7 @@ const Home = () => {
           <div className="font-semibold text-primary text-[36px] max-2xl:text-[32px] max-md:text-[24px] text-center">
             Акційні товари та сезонні пропозиції
           </div>
-          <Products totalProducts={100} />
+          <Products totalProducts={products?.length} />
         </div>
       </Container>
 

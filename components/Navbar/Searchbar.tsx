@@ -1,4 +1,5 @@
-'use client'
+"use client";
+import { useSearchContext } from "@/app/Context/SearchContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,8 +9,28 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
+import axios from "axios";
+import { useProductsContext } from "@/app/Context/ProductsContext";
 
 const Dropdown = () => {
+  const { query, brand, model, category, subcategory, setQuery } =
+    useSearchContext();
+  const { setProducts } = useProductsContext();
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key == "Enter") {
+      if (query == "" && (category == "" || subcategory == "")) {
+        alert("Need to select category or query");
+        return;
+      }
+      axios
+        .post("/api/search", { brand, model, category, subcategory, query })
+        .then((res) => {
+          console.log(res);
+          setProducts(res.data.result);
+        })
+        .catch((err) => {});
+    }
+  };
   return (
     <div className="hidden md:flex max-w-[578px] h-full w-full items-center">
       <div className="h-[42px] relative flex w-full flex-wrap items-stretch mx-12">
@@ -32,24 +53,18 @@ const Dropdown = () => {
             dark:border-white/10 dark:text-white dark:placeholder:text-neutral-200 dark:autofill:shadow-autofill dark:focus:border-primary"
           name="search"
           placeholder="Пошук по сайту"
-          style={{borderRadius:'62px'}}
+          style={{ borderRadius: "62px" }}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setQuery(e.target.value);
+          }}
+          onKeyDown={(e) => handleSearch(e)}
         />
         <div className="absolute right-0 top-0 mt-3 mr-4 flex">
-          <Image
-            src="/icons/search.png"
-            alt=""
-            width={20}
-            height={20}
-          />
+          <Image src="/icons/search.png" alt="" width={20} height={20} />
           <DropdownMenu>
             <DropdownMenuTrigger>
               <div className="ml-4">
-                <Image
-                  src="/icons/filter.png"
-                  alt=""
-                  width={20}
-                  height={20}
-                />
+                <Image src="/icons/filter.png" alt="" width={20} height={20} />
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent>

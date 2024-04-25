@@ -1,4 +1,6 @@
-import * as React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,8 +17,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useEffect, useState } from "react";
 import { useProductsContext } from "@/app/Context/ProductsContext";
+import { useSearchContext } from "@/app/Context/SearchContext";
 interface IBrands {
   title: string;
   pk: number;
@@ -35,23 +37,49 @@ export function CardWithForm() {
   const [models, setModels] = useState<Array<IModel>>([]);
   const [categories, setCategories] = useState<Array<ICategory>>([]);
   const [subcategories, setSubCategories] = useState<Array<ICategory>>([]);
-  const { products, setProducts } = useProductsContext();
-  const [brand, setBrand] = useState("");
-  const [model, setModel] = useState("");
-  const [category, setCategory] = useState("");
-  const [subcategory, setSubcategory] = useState("");
+  const { setProducts, setLoading } = useProductsContext();
+  // const [brand, setBrand] = useState("");
+  // const [model, setModel] = useState("");
+  // const [category, setCategory] = useState("");
+  // const [subcategory, setSubcategory] = useState("");
+  const {
+    brand,
+    setBrand,
+    model,
+    setModel,
+    category,
+    setCategory,
+    subcategory,
+    setSubcategory,
+    query,
+  } = useSearchContext();
 
   useEffect(() => {
     getProducts();
     getCarBrands();
   }, []);
-  const handleSearch = (e: React.MouseEvent<HTMLElement>) => {};
+
+  const handleSearch = (e: React.MouseEvent<HTMLElement>) => {
+    if (query == "" && (category == "" || subcategory == "")) {
+      alert("Need to select category or query");
+      return;
+    }
+    axios
+      .post("/api/search", { brand, model, category, subcategory, query })
+      .then((res) => {
+        console.log(res);
+        setProducts(res.data.result);
+      })
+      .catch((err) => {});
+  };
   const getProducts = async () => {
+    setLoading(true);
     axios
       .get("/api/products")
       .then((res) => {
         console.log(res);
         setProducts(res.data.result);
+        setLoading(false);
       })
       .catch((err) => {});
   };
@@ -117,7 +145,7 @@ export function CardWithForm() {
         <form>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
-              <Select onValueChange={(e) => handleBrandChange(e)} value={brand}>
+              <Select onValueChange={(e) => handleBrandChange(e)}>
                 <SelectTrigger
                   id="framework"
                   className="mt-4"
@@ -137,7 +165,7 @@ export function CardWithForm() {
               </Select>
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Select onValueChange={(e) => handleModelChange(e)} value={model}>
+              <Select onValueChange={(e) => handleModelChange(e)}>
                 <SelectTrigger
                   id="framework"
                   className="mt-3"
@@ -148,7 +176,7 @@ export function CardWithForm() {
                 <SelectContent position="popper">
                   {models?.map((model, index) => {
                     return (
-                      <SelectItem value={model.pk.toString()} key={index}>
+                      <SelectItem value={model.pk.toString()}>
                         {model.allegro_title}
                       </SelectItem>
                     );
@@ -157,10 +185,7 @@ export function CardWithForm() {
               </Select>
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Select
-                onValueChange={(e) => handleCategoryChange(e)}
-                value={category}
-              >
+              <Select onValueChange={(e) => handleCategoryChange(e)}>
                 <SelectTrigger
                   id="framework"
                   className="mt-3"
@@ -180,10 +205,7 @@ export function CardWithForm() {
               </Select>
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Select
-                onValueChange={(e) => handleSubCategoryChange(e)}
-                value={subcategory}
-              >
+              <Select onValueChange={(e) => handleSubCategoryChange(e)}>
                 <SelectTrigger
                   id="framework"
                   className="mt-3"

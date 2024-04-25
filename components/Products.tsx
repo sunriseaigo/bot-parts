@@ -7,7 +7,7 @@ interface ProductsProps {
 }
 
 const Products: React.FC<ProductsProps> = ({ totalProducts }) => {
-  const { products } = useProductsContext();
+  const { products, loading } = useProductsContext();
   // const productArray = new Array(totalProducts).fill(null);
 
   return (

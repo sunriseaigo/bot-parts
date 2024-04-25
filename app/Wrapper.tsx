@@ -3,18 +3,17 @@ import React from "react";
 import Header from "@/components/Navbar/NavAndSidebar";
 import Footer from "@/components/Footer";
 import { usePathname } from "next/navigation";
-import ProductsProvider from "./Context/ProductsContext";
+import { Providers } from "./Context/providers";
 
 const Wrapper = ({ passingProp }: any) => {
   const pathname = usePathname();
   return (
     <>
-      <Header />
-      <ProductsProvider>
-        {" "}
-        {passingProp}
+      {" "}
+      <Providers>
+        <Header />+ {passingProp}
         {pathname !== "/contact" && <Footer />}
-      </ProductsProvider>
+      </Providers>
     </>
   );
 };
