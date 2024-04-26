@@ -176,7 +176,7 @@ export function CardWithForm() {
                 <SelectContent position="popper">
                   {models?.map((model, index) => {
                     return (
-                      <SelectItem value={model.pk.toString()}>
+                      <SelectItem value={model.pk.toString()} key={index}>
                         {model.allegro_title}
                       </SelectItem>
                     );
@@ -194,9 +194,12 @@ export function CardWithForm() {
                   <SelectValue placeholder="Тип запчастини" />
                 </SelectTrigger>
                 <SelectContent position="popper">
-                  {categories?.map((category) => {
+                  {categories?.map((category, index) => {
                     return (
-                      <SelectItem value={category.allegro_id.toString()}>
+                      <SelectItem
+                        value={category.allegro_id.toString()}
+                        key={index}
+                      >
                         {category.title}
                       </SelectItem>
                     );
@@ -214,9 +217,12 @@ export function CardWithForm() {
                   <SelectValue placeholder="Оберіть запчастину" />
                 </SelectTrigger>
                 <SelectContent position="popper">
-                  {subcategories?.map((category) => {
+                  {subcategories?.map((category, index) => {
                     return (
-                      <SelectItem value={category.allegro_id.toString()}>
+                      <SelectItem
+                        value={category.allegro_id.toString()}
+                        key={index}
+                      >
                         {category.title}
                       </SelectItem>
                     );
