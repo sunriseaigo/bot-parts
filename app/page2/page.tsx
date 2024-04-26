@@ -34,9 +34,9 @@ const Page2 = () => {
         </Container>
       </div>
 
-      <Container className="w-full flex max-md:flex-col max-md:items-center gap-8">
+      <Container className="flex max-md:flex-col max-md:items-center gap-8">
         {/* LEFT */}
-        <div className="mt-16 w-full">
+        <div className="mt-16">
           <CardWithForm />
           <div className="mt-16 w-full">
             <SidebarDropdown />

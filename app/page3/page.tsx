@@ -12,7 +12,7 @@ const Page3 = () => {
       {/* SECTION */}
       <Container className="w-full flex max-md:flex-col max-md:items-center gap-8">
         {/* LEFT */}
-        <div className="mt-16 w-full">
+        <div className="mt-16">
           <CardWithForm />
           <p className="mt-4 text-primary text-[16px] max-md:text-center">
             Відображаються результати за запитом: “Ford - Focus IV Sedan -
