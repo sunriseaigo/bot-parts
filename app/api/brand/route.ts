@@ -1,13 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 
-const EUPARTS_END_POINT_URL = process.env.EUPARTS_END_POINT_URL;
-
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
-  // return Response.json({brands})
-
+export async function GET(req: NextRequest, res: NextResponse) {
   const response = await axios.get(
-    `${EUPARTS_END_POINT_URL}/carmakes/?format=json`
+    `${process.env.EUPARTS_END_POINT_URL}/carmakes/?format=json`
   );
   const brands = response.data;
 

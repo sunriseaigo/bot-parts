@@ -22,9 +22,22 @@ const section3Items = [
   },
 ];
 
+interface IImage {
+  original: string;
+  thumbnail: string;
+  embeded: string;
+  alt: string;
+}
+
+interface IProduct {
+  title: string;
+  price: number;
+  currency: string;
+}
+
 const Page4 = () => {
-  const [imgsList, setImageList] = useState([]);
-  const [product, setProduct] = useState({});
+  const [imgsList, setImageList] = useState<Array<IImage>>([]);
+  const [product, setProduct] = useState<IProduct>(Object);
 
   useEffect(() => {
     axios
@@ -105,7 +118,7 @@ const Page4 = () => {
           </div>
           {/* Right */}
           <div className="w-1/2 max-lg:w-full border- border-primary">
-            <div className="font-semibold text-[36px]">{product.title}</div>
+            <div className="font-semibold text-[36px]">{product?.title}</div>
             <div className="text-[22px] font-medium pt-6">Категорія:</div>
             <div className="text-[22px] font-medium pt-6">Стан:</div>
             <div className="font-semibold text-[36px] pt-8">

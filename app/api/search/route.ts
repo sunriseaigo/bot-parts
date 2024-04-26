@@ -1,7 +1,7 @@
 import axios from "axios";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest, res: NextResponse) {
   const { brand, model, category, subcategory, query } = await req.json();
 
   const response = await axios.get(

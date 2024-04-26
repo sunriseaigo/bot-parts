@@ -1,18 +1,18 @@
 import React from "react";
 import Image from "next/image";
-import { useProductsContext } from "@/app/Context/ProductsContext";
+import { IProduct, useProductsContext } from "@/app/Context/ProductsContext";
 
 interface ProductsProps {
   totalProducts: number;
 }
 
 const Products: React.FC<ProductsProps> = ({ totalProducts }) => {
-  const { products, loading } = useProductsContext();
+  const { products } = useProductsContext();
   // const productArray = new Array(totalProducts).fill(null);
 
   return (
     <div className="mt-16 flex gap-6 flex-wrap justify-center">
-      {products?.map((product, index) => (
+      {products?.map((product: any, index) => (
         <div
           key={index}
           className="card-shadow bg-white w-[420px] max-2xl:w-[340px] max-xl:w-[280px] max-md:w-[240px] max-sm:w-full p-[20px] text-primary flex flex-col justify-between cursor-pointer"
@@ -21,7 +21,7 @@ const Products: React.FC<ProductsProps> = ({ totalProducts }) => {
           <div>
             <Image
               // src={index % 2 === 0 ? "/imgs/product.png" : "/imgs/product2.png"}
-              src={product.mainImage}
+              src={product?.mainImage}
               alt=""
               width={380}
               height={320}
