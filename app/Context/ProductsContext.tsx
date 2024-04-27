@@ -22,10 +22,13 @@ const ProductsContext = createContext({
   setProducts: (products: any) => {},
   loading: false,
   setLoading: (loading: boolean) => {},
+  selectedProduct: 0,
+  setSelectedProduct: (selectedProduct: number) => {},
 });
 
 const ProductsProvider = ({ children }: IProductsProps) => {
   const [products, setProduct] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(0);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     axios
@@ -38,7 +41,14 @@ const ProductsProvider = ({ children }: IProductsProps) => {
   }, []);
   return (
     <ProductsContext.Provider
-      value={{ products, setProducts: setProduct, loading, setLoading }}
+      value={{
+        products,
+        setProducts: setProduct,
+        loading,
+        setLoading,
+        selectedProduct,
+        setSelectedProduct,
+      }}
     >
       {children}
     </ProductsContext.Provider>

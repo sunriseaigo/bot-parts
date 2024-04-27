@@ -6,6 +6,7 @@ import Container from "@/components/Container/Container";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Products from "@/components/Products";
 import axios from "axios";
+import { useProductsContext } from "../Context/ProductsContext";
 
 const section3Items = [
   {
@@ -38,17 +39,17 @@ interface IProduct {
 const Page4 = () => {
   const [imgsList, setImageList] = useState<Array<IImage>>([]);
   const [product, setProduct] = useState<IProduct>(Object);
-
+  const { selectedProduct } = useProductsContext();
   useEffect(() => {
     axios
-      .post("/api/detail", { product_id: "12107747197" })
+      .post("/api/detail", { product_id: selectedProduct })
       .then((res) => {
         const product = res.data.result;
         setImageList(product.images);
         setProduct(product);
       })
       .catch((err) => {});
-  }, []);
+  }, [selectedProduct]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 

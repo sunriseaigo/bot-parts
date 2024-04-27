@@ -38,10 +38,6 @@ export function CardWithForm() {
   const [categories, setCategories] = useState<Array<ICategory>>([]);
   const [subcategories, setSubCategories] = useState<Array<ICategory>>([]);
   const { setProducts, setLoading } = useProductsContext();
-  // const [brand, setBrand] = useState("");
-  // const [model, setModel] = useState("");
-  // const [category, setCategory] = useState("");
-  // const [subcategory, setSubcategory] = useState("");
   const {
     brand,
     setBrand,
