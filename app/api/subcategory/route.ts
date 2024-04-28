@@ -6,7 +6,7 @@ interface SubCategoriesData {
   data: any[];
 }
 export async function POST(req: NextRequest, res: NextResponse) {
-  const { pk, pks } = await req.json();
+  const { pk } = await req.json();
   // let subCategories: SubCategoriesData = { data: [] };
   // if (pks.length > 0) {
   //   await pks.map(async (pk: any) => {
@@ -17,8 +17,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
   //   });
   //   return Response.json({ subCategories });
   // }
-  // return Response.json({ subcategories: data });
-  return Response.json({ subcategories: data });
+  // // return Response.json({ subcategories: data });
+  // // return Response.json({ subcategories: data });
 
   const response = await axios.get(
     `${process.env.EUPARTS_END_POINT_URL}/categories/${pk}/?format=json`

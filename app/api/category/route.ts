@@ -3,7 +3,7 @@ import axios from "axios";
 import { data } from "@/app/data";
 
 export async function POST(req: NextRequest, res: NextResponse) {
-  return Response.json({ categories: data });
+  // return Response.json({ categories: data });
 
   const { pk } = await req.json();
   const response = await axios.get(

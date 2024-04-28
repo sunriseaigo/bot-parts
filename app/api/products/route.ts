@@ -9,13 +9,10 @@ export async function GET(req: NextRequest, res: NextResponse) {
   // console.log(
   //   `${process.env.ALLEGRO_END_POINT_URL}?api_key=${process.env.ALLEGRO_API_KEY}&method=search&category=620`
   // );
-  if (response.data.products) {
-    const result =
-      response.data.totalcount >= 8
-        ? response.data.products.slice(0, 8)
-        : response.data.products;
-    return Response.json({ result });
-  } else {
-    return Response.json({ result: [] });
-  }
+
+  const result =
+    response.data.products.length >= 8
+      ? response.data.products.slice(0, 8)
+      : response.data.products;
+  return Response.json({ result });
 }
