@@ -38,7 +38,7 @@ const CategoryProvider = ({ children }: ICategoryProps) => {
       .post("/api/subcategory", { pk: 620, pks: pks })
       .then((res) => {
         console.log(res.data);
-        setSubcategories(res.data.subcategories.subcategories);
+        setSubcategories(res.data.subcategories.data);
       })
       .catch((err) => {});
   };

@@ -68,7 +68,7 @@ const SidebarDropdown = () => {
         >
           <div
             onClick={() => {
-              handleDropdownClick(index, item.pk);
+              handleDropdownClick(index, item.allegro_id);
             }}
             className="flex pt-6 max-md:pt-3 pb-2 items-center"
           >
