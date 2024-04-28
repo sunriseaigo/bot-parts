@@ -11,7 +11,6 @@ interface ICategory {
 }
 
 const SidebarDropdown = () => {
-  // const { categories, subcategories } = useCategoryContext();
   const [categories, setCategories] = useState<Array<ICategory>>([]);
 
   const [subcategories, setSubCategories] = useState<Array<ICategory>>([]);
@@ -50,6 +49,7 @@ const SidebarDropdown = () => {
     axios
       .post("/api/subcategory", { pk: pk })
       .then((res) => {
+        console.log(res.data);
         setSubCategories(res.data.subcategories.categories);
       })
       .catch((err) => {});
