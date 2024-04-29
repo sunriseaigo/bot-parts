@@ -49,6 +49,7 @@ const SidebarDropdown = () => {
       .catch((err) => {});
   };
   const getCarSubCategories = async (pk: string, index: number) => {
+    console.log(subcategories);
     axios
       .post("/api/subcategory", { pk: pk })
       .then((res) => {
