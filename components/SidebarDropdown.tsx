@@ -18,7 +18,10 @@ const SidebarDropdown = () => {
     new Array(categories.length).fill(false)
   );
   const { query, brand, category, model } = useSearchContext();
+
   const handleDropdownClick = (index: any, pk: any) => {
+    console.log("sub", subcategories);
+    console.log("clicked ", index);
     if (subcategories[index].length == 0) getCarSubCategories(pk, index);
     const newOpenStates = [...openStates];
     newOpenStates[index] = !newOpenStates[index];
@@ -49,11 +52,9 @@ const SidebarDropdown = () => {
       .catch((err) => {});
   };
   const getCarSubCategories = async (pk: string, index: number) => {
-    console.log(subcategories);
     axios
       .post("/api/subcategory", { pk: pk })
       .then((res) => {
-        console.log(res.data);
         setSubCategories((prevSubcategories) => {
           const newSubcategories = [...prevSubcategories];
           newSubcategories[index] = res.data.subcategories.categories;
