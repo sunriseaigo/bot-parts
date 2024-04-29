@@ -24,7 +24,7 @@ const Products: React.FC<ProductsProps> = ({ totalProducts }) => {
           index < totalProducts && (
             <div
               key={index}
-              className="card-shadow bg-white w-[420px] max-2xl:w-[340px] max-xl:w-[280px] max-md:w-[240px] max-sm:w-full p-[20px] text-primary flex flex-col justify-between cursor-pointer"
+              className="card-shadow bg-white w-[420px] h-fit max-2xl:w-[340px] max-xl:w-[280px] max-md:w-[240px] max-sm:w-full p-[20px] text-primary flex flex-col justify-between cursor-pointer"
               style={{ borderRadius: "38px" }}
             >
               <div>
