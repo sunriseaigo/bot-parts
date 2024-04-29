@@ -22,13 +22,13 @@ const ProductsContext = createContext({
   setProducts: (products: any) => {},
   loading: false,
   setLoading: (loading: boolean) => {},
-  selectedProduct: 0,
+  selectedProduct: 12107747197,
   setSelectedProduct: (selectedProduct: number) => {},
 });
 
 const ProductsProvider = ({ children }: IProductsProps) => {
   const [products, setProduct] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState(12107747197);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     axios
