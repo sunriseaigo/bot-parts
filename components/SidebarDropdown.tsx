@@ -13,13 +13,13 @@ interface ICategory {
 const SidebarDropdown = () => {
   const [categories, setCategories] = useState<Array<ICategory>>([]);
 
-  const [subcategories, setSubCategories] = useState<Array<ICategory>>([]);
+  const [subcategories, setSubCategories] = useState<Array<ICategory[]>>([]);
   const [openStates, setOpenStates] = useState(
     new Array(categories.length).fill(false)
   );
   const { query, brand, category, model } = useSearchContext();
   const handleDropdownClick = (index: any, pk: any) => {
-    getCarSubCategories(pk);
+    if (subcategories[index].length == 0) getCarSubCategories(pk, index);
     const newOpenStates = [...openStates];
     newOpenStates[index] = !newOpenStates[index];
     setOpenStates(newOpenStates);
@@ -41,16 +41,23 @@ const SidebarDropdown = () => {
       .post("/api/category", { pk: pk })
       .then((res) => {
         setCategories(res.data.categories.categories);
+        setSubCategories(
+          new Array(res.data.categories.categories.length).fill(new Array())
+        );
         // console.log(res.data.categories.categories);
       })
       .catch((err) => {});
   };
-  const getCarSubCategories = async (pk: string) => {
+  const getCarSubCategories = async (pk: string, index: number) => {
     axios
       .post("/api/subcategory", { pk: pk })
       .then((res) => {
         console.log(res.data);
-        setSubCategories(res.data.subcategories.categories);
+        setSubCategories((prevSubcategories) => {
+          const newSubcategories = [...prevSubcategories];
+          newSubcategories[index] = res.data.subcategories.categories;
+          return newSubcategories;
+        });
       })
       .catch((err) => {});
   };
@@ -79,7 +86,7 @@ const SidebarDropdown = () => {
           </div>
           {openStates[index] && (
             <div className="text-[18px] pl-12 pb-4">
-              {subcategories.map((subcategory: any, index) => {
+              {subcategories[index].map((subcategory: any, index) => {
                 return (
                   <div
                     className="py-1"
